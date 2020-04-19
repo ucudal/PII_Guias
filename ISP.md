@@ -2,7 +2,7 @@
 
 ### FIT - Universidad Católica del Uruguay
 
-<br>
+<br/>
 
 # Interface Segregation Principle (ISP)
 
@@ -82,7 +82,6 @@ public class Sale
 
     …
 }
-
 ```
 
 > [Ver en repositorio »](https://github.com/ucudal/PII_ISP/blob/master/v1/Sale.cs)
@@ -128,19 +127,19 @@ Para poder cerrar la venta automáticamente luego de transcurrido cierto tiempo,
 
 Noten que la clase `Sale` tiene las mismas operaciones que tenía antes, más un nuevo método `TimeOut`: este nuevo método agregado para implementar la interfaz `TimerClient` no es necesario para usar hacer una venta, sino por el mecanismo de notificación que usa `CountdownTimer`. Por ejemplo, la clase `Program` depende de la clase `Sale` -crea instancias y agrega líneas de venta- y pasa a depender -indirectamente- de la interfaz `TimerClient`.
 
-El código de la clase `Sale` aparece a continuación, los puntos … representan el código que ya apareció antes, las modificaciones están marcadas con el comentario `//nuevo`:
+El código de la clase `Sale` aparece a continuación, los puntos … representan el código que ya apareció antes, las modificaciones están restaltadas:
 
 ```c#
-public class Sale : TimerClient
++public class Sale : TimerClient
 {
     …
     
-    private CountdownTimer timer = new CountdownTimer();   // nuevo
++    private CountdownTimer timer = new CountdownTimer();
 
-    public Sale()    // nuevo
-    {
-        this.timer.Register(1000, this); // nuevo  - 1 segundo para que se cierre
-    }
++    public Sale()
++    {
++        this.timer.Register(1000, this); // 1 segundo para que se cierre
++    }
     
     …
     
@@ -151,15 +150,15 @@ public class Sale : TimerClient
             throw new Exception("La venta no está cerrada.");
         }
         this.IsClosed = false;
-        this.timer.Register(1000, this); // nuevo  - 1 segundo para que se cierre
+ +       this.timer.Register(1000, this); // 1 segundo para que se cierre
     }
     
     …
     
-    public void TimeOut()  // nuevo
-    {
-        this.Close();
-    }
++    public void TimeOut()
++    {
++        this.Close();
++    }
 }
 ```
 > [Ver en repositorio »](https://github.com/ucudal/PII_ISP/blob/master/v2/Sale.cs),
