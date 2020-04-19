@@ -117,7 +117,7 @@ public class CountdownTimer
 }
 ```
 
-> [Ver en repositorio »](https://github.com/ucudal/PII_ISP/blob/master/v1/CountdownTimer.cs),
+> [Ver en repositorio »](https://github.com/ucudal/PII_ISP/blob/master/v1/CountdownTimer.cs)
 
 <br/>
 
@@ -130,7 +130,7 @@ Noten que la clase `Sale` tiene las mismas operaciones que tenía antes, más un
 El código de la clase `Sale` aparece a continuación, los puntos … representan el código que ya apareció antes, las modificaciones están restaltadas:
 
 ```diff
-+ public class Sale : TimerClient
++public class Sale : TimerClient
 {
     …
     
@@ -150,7 +150,7 @@ El código de la clase `Sale` aparece a continuación, los puntos … representa
             throw new Exception("La venta no está cerrada.");
         }
         this.IsClosed = false;
- +       this.timer.Register(1000, this); // 1 segundo para que se cierre
++        this.timer.Register(1000, this); // 1 segundo para que se cierre
     }
     
     …
@@ -161,7 +161,7 @@ El código de la clase `Sale` aparece a continuación, los puntos … representa
 +    }
 }
 ```
-> [Ver en repositorio »](https://github.com/ucudal/PII_ISP/blob/master/v2/Sale.cs),
+> [Ver en repositorio »](https://github.com/ucudal/PII_ISP/blob/master/v2/Sale.cs)
 
 <br/>
 
@@ -169,12 +169,12 @@ La clase `Sale` se registra con la instancia de `CountdownTimer` en el construct
 
 Modificamos entonces el método `Register` de la clase `CountdownTimer` para incluir un identificador único de cada cuenta regresiva; ese identificador se envía de nuevo en el método `TimeOut`. De esa forma, la clase `Sale` puede saber si una invocación al método `TimeOut` corresponde a la última cuenta regresiva o no, y cerrar la venta sólo en ese caso.
 
-Vean el código a continuación, los puntos … representan el código que ya apareció antes, las modificaciones están marcadas con el comentario `//modificado`:
+Vean el código a continuación, los puntos … representan el código que ya apareció antes, las modificaciones están resaltadas:
 
-```c#
+```diff
 public interface TimerClient
 {
-    void TimeOut(object timeOutId); // modificado
+~    void TimeOut(object timeOutId);
 }
 
 public class CountdownTimer
@@ -183,10 +183,10 @@ public class CountdownTimer
 
     private Timer timer;
 
-    public void Register(object timeOutId, int timeOut, TimerClient client) // modificado
+~    public void Register(object timeOutId, int timeOut, TimerClient client)
     {
         this.client = client;
-        this.timer = new Timer(this.OnTimedEvent, timeOutId, timeOut, Timeout.Infinite); // modificado
+~        this.timer = new Timer(this.OnTimedEvent, timeOutId, timeOut, Timeout.Infinite);
     }
 
     private void OnTimedEvent(object state)
@@ -197,7 +197,7 @@ public class CountdownTimer
 }
 ```
 
-> [Ver en repositorio »](https://github.com/ucudal/PII_ISP/blob/master/v3/CountdownTimer.cs),
+> [Ver en repositorio »](https://github.com/ucudal/PII_ISP/blob/master/v3/CountdownTimer.cs)
 
 <br/>
 
@@ -209,48 +209,48 @@ En forma gráfica, podemos representar el nuevo diseño como vemos a continuaci�
 
 ![ISP_4](./Assets/ISP_4.png)
 
-En el código de ejemplo en C# a continuación, la clase `TimerAdapter` está definida como una [clase anidada](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/nested-types) -una clase declarada dentro de otra clase- y privada en la clase `Sale`; esto permite utilizar la clase `TimeAdapter` sólo dentro de métodos de la clase `Sale`. Vean el código a continuación, los puntos … representan el código que ya apareció antes, las modificaciones están marcadas con el comentario `//nuevo`:
+En el código de ejemplo en C# a continuación, la clase `TimerAdapter` está definida como una [clase anidada](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/nested-types) -una clase declarada dentro de otra clase- y privada en la clase `Sale`; esto permite utilizar la clase `TimeAdapter` sólo dentro de métodos de la clase `Sale`. Vean el código a continuación, los puntos … representan el código que ya apareció antes, las modificaciones están resaltadas:
 
-```c#
+```diff
 public class Sale
 {
     …
     
     private CountdownTimer timer = new CountdownTimer();
     
-    private TimerAdapter timerClient; // nuevo
++    private TimerAdapter timerClient; 
     
     public Sale()
     {
-        this.StartCountdown(); // nuevo
++        this.StartCountdown(); 
     }
     
     …
 
-    // nuevo
-    private void StartCountdown()
-    {
-        this.timerClient = new TimerAdapter(this);
-        this.timer.Register(1000, this.timerClient);
-    }
 
-    // nuevo
-    private class TimerAdapter : TimerClient
-    {
-        private Sale sale;
-
-        public TimerAdapter(Sale sale)
-        {
-            this.sale = sale;
-        }
-
-        public object TimeOutId { get; }
-        
-        public void TimeOut()
-        {
-            this.sale.Close();
-        }
-    }
++    private void StartCountdown()
++    {
++        this.timerClient = new TimerAdapter(this);
++        this.timer.Register(1000, this.timerClient);
++    }
++
++
++    private class TimerAdapter : TimerClient
++    {
++        private Sale sale;
++
++        public TimerAdapter(Sale sale)
++        {
++            this.sale = sale;
++        }
++
++        public object TimeOutId { get; }
++        
++        public void TimeOut()
++        {
++            this.sale.Close();
++        }
++    }
 }
 
 ```
