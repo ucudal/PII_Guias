@@ -169,7 +169,7 @@ La clase `Sale` se registra con la instancia de `CountdownTimer` en el construct
 
 Modificamos entonces el método `Register` de la clase `CountdownTimer` para incluir un identificador único de cada cuenta regresiva; ese identificador se envía de nuevo en el método `TimeOut`. De esa forma, la clase `Sale` puede saber si una invocación al método `TimeOut` corresponde a la última cuenta regresiva o no, y cerrar la venta sólo en ese caso.
 
-Vean el código a continuación, los puntos … representan el código que ya apareció antes, las modificaciones están resaltadas:
+Vean el código a continuación, los puntos … representan el código que ya apareció antes, las modificaciones están resaltadas (en rojo lo anterior, en verde lo nuevo):
 
 ```diff
 public interface TimerClient
