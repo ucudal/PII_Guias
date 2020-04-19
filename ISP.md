@@ -255,7 +255,7 @@ public class Sale
 }
 
 ```
-> [Ver en repositorio »](https://github.com/ucudal/PII_ISP/blob/master/v4/Sale.cs),
+> [Ver en repositorio »](https://github.com/ucudal/PII_ISP/blob/master/v4/Sale.cs)
 
 <br/>
 
