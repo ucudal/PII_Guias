@@ -6,9 +6,6 @@
 
 # Principios y Patrones
 
-Encuentra aquí la documentación del curso sobre Principios y Patrones en la programación orientada a objetos.
-
-
 ## Contenido
 
 1. SOLID
