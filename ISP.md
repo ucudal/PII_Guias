@@ -183,10 +183,12 @@ public class CountdownTimer
 
     private Timer timer;
 
-~    public void Register(object timeOutId, int timeOut, TimerClient client)
+-   public void Register(int timeOut, TimerClient client)
++   public void Register(object timeOutId, int timeOut, TimerClient client)
     {
         this.client = client;
-~        this.timer = new Timer(this.OnTimedEvent, timeOutId, timeOut, Timeout.Infinite);
+-       this.timer = new Timer(this.OnTimedEvent, null, timeOut, Timeout.Infinite);        
++       this.timer = new Timer(this.OnTimedEvent, timeOutId, timeOut, Timeout.Infinite);
     }
 
     private void OnTimedEvent(object state)
