@@ -129,8 +129,8 @@ Noten que la clase `Sale` tiene las mismas operaciones que tenía antes, más un
 
 El código de la clase `Sale` aparece a continuación, los puntos … representan el código que ya apareció antes, las modificaciones están restaltadas:
 
-```c#
-+public class Sale : TimerClient
+```diff
++ public class Sale : TimerClient
 {
     …
     
