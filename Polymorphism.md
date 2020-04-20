@@ -4,7 +4,7 @@
 
 <br>
 
-# Patrón Polymorphism
+# Polymorphism Pattern
 
 Decimos que una operación es polimórfica cuando es implementada por dos o más objetos de diferentes tipos. Relacionado con esto hay un patrón GRASP<sup>1</sup> llamado Polymorfism.
 

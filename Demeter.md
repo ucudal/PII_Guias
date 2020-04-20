@@ -271,6 +271,6 @@ Tengan en cuenta también que el patrón `Visitor` no es la única forma de cump
 
 *****
 
-<sup>1</sup> _General Responsibility Assignment Methods_
+_<sup>1</sup> General Responsibility Assignment Methods_
 
 <sup>2</sup> _Los patrones Observer y Singleton que ya conocen provienen también de ese catálogo. Vean por ejemplo https://www.oodesign.com/_
