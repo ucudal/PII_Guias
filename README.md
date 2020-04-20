@@ -20,7 +20,7 @@
 
     1.5. [Dependency Inversion Principle (DIP)](./DIP.md)
 
-    1.6. [Tarjetas](./Assets/Tarjetas/Principios/README.md)
+    1.6. [Tarjetas](./Tarjetas/Principios/README.md)
 
 
 2. Patrones GRASP
