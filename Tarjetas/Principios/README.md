@@ -1,9 +1,8 @@
 ![UCU](https://github.com/ucudal/PII_Conceptos_De_POO/raw/master/Assets/logo-ucu.png)
 
-[Conceptos de Programación Orientada a Objetos](../../)
+[Conceptos de Programación Orientada a Objetos](../../README.md)
 
-> [« Principios y patrones](../../)
-
+> [« Principios y patrones](../../README.md)
 # Principios
 
 ## Tarjetas
