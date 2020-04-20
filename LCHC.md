@@ -57,15 +57,15 @@ Luego modifica la tarjeta de la clase **Sale** que ya había, para agregar las r
         <td>
             <p>Conocer fecha y hora</p>
             <p>Conocer una o más líneas de ítemsvendidos</p>
-            <p style="background-color:#22863a">Conocer los pagos</p>
+            <p><b>Conocer los pagos</b></p>
             <p>Calcular el total</p>
-            <p style="background-color:#22863a">Calcular el saldo a pagar</p>
+            <p><b>Calcular el saldo a pagar</b></p>
             <p>Representar la venta como texto a imprimir</p>
         </td>
         <td>
             <p>Sales Line</p>
             <p>Item</p>
-            <p style="background-color:#22863a">Paymnet</p>
+            <p><b>Paymnet</b></p>
         </td>
     </tr>
 </table>
@@ -83,8 +83,8 @@ Luego modifica la tarjeta de la clase **Pos** para agregar las colaboraciones fa
             <p>Realizar un pago</p>
         </td>
         <td>
-            <p style="background-color:#22863a">Paymnet</p>
-            <p style="background-color:#22863a">Sale</p>
+            <p><b>Paymnet</b></p>
+            <p><b>Sale</b></p>
         </td>
     </tr>
 </table>
