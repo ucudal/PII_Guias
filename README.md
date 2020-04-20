@@ -20,6 +20,9 @@
 
     1.5. [Dependency Inversion Principle (DIP)](./DIP.md)
 
+    1.6. [Tarjetas](./Assets/Tarjetas/Principios/README.md)
+
+
 2. Patrones GRASP
 
     2.1. [Expert](./Expert.md)
@@ -31,3 +34,5 @@
     2.4. [Low Coupling & High Cohesion](./LCHC.md)
 
     2.5. [Don't Talk to Strangers (Ley de Demeter)](Demeter.md)
+
+    2.6. [Tarjetas]()
