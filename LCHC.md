@@ -56,7 +56,7 @@ Luego modifica la tarjeta de la clase **Sale** que ya había, para agregar las r
     <tr>
         <td>
             <p>Conocer fecha y hora</p>
-            <p>Conocer una o más líneas de ítemsvendidos</p>
+            <p>Conocer una o más líneas de ítems vendidos</p>
             <p><b>Conocer los pagos</b></p>
             <p>Calcular el total</p>
             <p><b>Calcular el saldo a pagar</b></p>
@@ -197,7 +197,7 @@ José comienza a hacer un esquema en el pizarrón. Ana sabe que a José le encan
 
 ―Ajá, pero no sé qué es.
 
-―Tenés más dependencias de las que se necesita Ana, eso es lo que te hace ruido; el acoplamiento4 es muy alto ―dice José, enfáticamente.
+―Tenés más dependencias de las que se necesita Ana, eso es lo que te hace ruido; el [acoplamiento](https://en.wikipedia.org/wiki/Coupling_(computer_programming)) es muy alto ―dice José, enfáticamente._
 
 ―¿Acoplamiento? ―pregunta Ana, frunciendo el ceño.
 
@@ -276,7 +276,7 @@ La forma de crear acoplamiento entre clases es cuando una clase depende de la ot
 
 > Asignar una responsabilidad de forma que la cohesión se mantenga alta.
 
-En el contexto de la programación orientada a objetos, la cohesión<sup>5</sup> es una medida de qué tan enfocadas y fuertemente relacionadas están las responsabilidades de una clase. Una clase con responsabilidades alta o fuertemente relacionadas tiene alta cohesión. Por el contrario, una clase con baja o poca cohesión hace muchas cosas que no tienen que ver entre sí. Como regla general, cuanto mayor es la cohesión, mejor.
+En el contexto de la programación orientada a objetos, la [cohesión](https://en.wikipedia.org/wiki/Cohesion_(computer_science)) es una medida de qué tan enfocadas y fuertemente relacionadas están las responsabilidades de una clase. Una clase con responsabilidades alta o fuertemente relacionadas tiene alta cohesión. Por el contrario, una clase con baja o poca cohesión hace muchas cosas que no tienen que ver entre sí. Como regla general, cuanto mayor es la cohesión, mejor.
 
 El problema con la baja cohesión es que deriva en clases que son más difíciles de entender, de reutilizar, de mantener, y generalmente son más frágiles.
 
@@ -294,12 +294,8 @@ Estos dos patrones, **Low Coupling** y **High Cohesion** son guías para decidir
 
 *****
 
-_<sup>1</sup> GRASP: General Responsibility Assignment Patterns._
+<sup>1</sup> _GRASP: General Responsibility Assignment Patterns._
 
-_<sup>2</sup> Las modificaciones están marcadas con amarillo._
+<sup>2</sup> _Las modificaciones están marcadas con amarillo._
 
-_<sup>3</sup> El código que ya apareció antes en otro documentos se muestra con …; los cambios están marcados con verde._
-
-_<sup>4</sup> https://en.wikipedia.org/wiki/Coupling (computer_programming) ._
-
-_<sup>5</sup> https://en.wikipedia.org/wiki/Cohesion (computer_science) ._
+<sup>3</sup> _El código que ya apareció antes en otro documentos se muestra con …; los cambios están marcados con verde._
