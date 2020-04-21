@@ -22,7 +22,7 @@
 
     1.6. [Don't Talk to Strangers (Ley de Demeter)](Demeter.md)
 
-    1.7. [Tarjetas]()
+    1.7. [Tarjetas](./Tarjetas/Patrones/README.md)
 
 
 2. [SOLID](./SOLID.md)
