@@ -42,15 +42,15 @@ En principio de inversión de dependencias no se llama así porque la clase `B` 
 
 ![DIP_2](./Assets/DIP_2.png)
 
-En este caso la clase `A` depende de `Abstracción `B`; y la clase `B` implementa `Abstracción `B` -y en consecuencia depende de ella también-.
+En este caso la clase `A` depende de `Abstracción B`; y la clase `B` implementa `Abstracción B` -y en consecuencia depende de ella también-.
 
 Revisemos porqué este diseño es mejor:
 
-- Ahora es posible introducir cambios en la clase `B` sin afectar la clase `A`, siempre y cuando la clase `B` conserve el tipo definido por `Abstracción `B`; es decir, mientras no cambie `Abstracción `B`, la clase `B` puede tener nuevas responsabilidades o cambios a las responsabilidades existentes.
+- Ahora es posible introducir cambios en la clase `B` sin afectar la clase `A`, siempre y cuando la clase `B` conserve el tipo definido por `Abstracción B`; es decir, mientras no cambie `Abstracción B`, la clase `B` puede tener nuevas responsabilidades o cambios a las responsabilidades existentes.
 
-- Al agregar o quitar métodos que no están en incluidos en el tipo definido por `Abstracción `B`, es más difícil que la clase `A` deje de funcionar.
+- Al agregar o quitar métodos que no están en incluidos en el tipo definido por `Abstracción B`, es más difícil que la clase `A` deje de funcionar.
 
-- Puede ser posible reutilizar la clase `A` sin reutilizar la clase `B`: puedo utilizar en lugar de la clase `B` cualquier otra clase que tenga el tipo definido por la interfaz `Abstracción `B`
+- Puede ser posible reutilizar la clase `A` sin reutilizar la clase `B`: puedo utilizar en lugar de la clase `B` cualquier otra clase que tenga el tipo definido por la interfaz `Abstracción B`
 
 ## Ejemplo
 
