@@ -15,15 +15,6 @@
 
 <br/>
 
-|  |
-| ---- |
-| **Problema** |
-|  |
-| **Solución** |
-|  |
-
-<br/>
-
 | Creator (Creador) |
 | ---- |
 | **Problema** |
