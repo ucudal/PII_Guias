@@ -211,15 +211,13 @@ public class Program
 +       ISaleContent saleContent = new PlainSaleContent(sale);
 
 -       consolePrinter.PrintTicket(sale);
-+       consolePrinter.PrintTicket(saleContent);
 -       filePrinter.PrintTicket(sale);
++       consolePrinter.PrintTicket(saleContent);
 +       filePrinter.PrintTicket(saleContent);
         
 +       filePrinter = new FilePrinter("Ticket.md");
 +       saleContent = new MarkdownSaleContent(sale);
--       consolePrinter.PrintTicket(sale);
 +       consolePrinter.PrintTicket(saleContent);
--       filePrinter.PrintTicket(sale);
 +       filePrinter.PrintTicket(saleContent);
     }
 }
