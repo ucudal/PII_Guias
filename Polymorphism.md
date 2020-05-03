@@ -24,7 +24,7 @@ Cuando alternativas o comportamientos relacionados varían según el tipo o clas
 
 ## Ejemplo
 
-En el ejemplo del punto de venta introducido en el documento **Experto y SRP**, ¿quién debería ser responsable por imprimir el ticket en diferentes destinos por ejemplo una impresora o la consola?
+En el ejemplo del punto de venta introducido en [Experto](./Expert.md) y [SRP](./SRP.md), ¿quién debería ser responsable por imprimir el ticket en diferentes destinos por ejemplo una impresora o la consola?
 
 Inicialmente tenemos una clase **AllInOnePrinter** que según el tipo **Destination** imprime en consola o un archivo de texto.
 
