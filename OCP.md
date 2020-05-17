@@ -71,24 +71,24 @@ del total de la venta.
 ```c#
 public class SaleDiscount : SalesBaseItem
 {
-    public SaleDiscount(double ammount)
+    public SaleDiscount(double amount)
     {
-        this.Ammount = ammount;
+        this.Amount = ammount;
     }
 
-    public double Ammount { get; }
+    public double Amount { get; }
     
     public override double SubTotal
     {
         get
         {
-            return - this.Ammount;
+            return - this.Amount;
         }
     }
 
     public override string GetTextToPrint()
     {
-        return $"Descuento: -${this.Ammount}\n";
+        return $"Descuento: -${this.Amount}\n";
     }
 }
 ```
@@ -175,9 +175,9 @@ public class Sale
         return item;
     }
 
-    public SaleDiscount AddDiscount(double ammount)
+    public SaleDiscount AddDiscount(double amount)
     {
-+        SaleDiscount item = new SaleDiscount(ammount);
++        SaleDiscount item = new SaleDiscount(amount);
         this.lineItems.Add(item);
         return item;
     }
