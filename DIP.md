@@ -225,7 +225,7 @@ public class Program
 
 > [Ver en repositorio »](https://github.com/ucudal/PII_DIP/blob/master/v3/Program.cs)
 
-En este ejemplo movimos la responsabilidad de proveer el texto para imprimir un ticket desde la clase `Sale` a nuevas clases `PlainSaleContent` y `MarkdownSaleContent`; sin embargo, no fue necesario modificar las clases `FilePrinter` y `ConsolePrinter`. Esto es porque tanto `FilePrinter` como `ConsolePrinter` dependen de la abstracción `ISaleContent` y no de la clase concreta `Sale`. `A` su vez, podemos dar diferentes formamos al mismo contenido del ticket, porque la clase `Sale` depende de esa misma abstracción definida en `ISaleContent`. Estos son los beneficios derivados de aplicar el principio de inversión de dependencias.
+En este ejemplo movimos la responsabilidad de proveer el texto para imprimir un ticket desde la clase `Sale` a nuevas clases `PlainSaleContent` y `MarkdownSaleContent`; sin embargo, no fue necesario modificar las clases `FilePrinter` y `ConsolePrinter`. Esto es porque tanto `FilePrinter` como `ConsolePrinter` dependen de la abstracción `ISaleContent` y no de la clase concreta `Sale`. A su vez, podemos dar diferentes formamos al mismo contenido del ticket, porque la clase `Sale` depende de esa misma abstracción definida en `ISaleContent`. Estos son los beneficios derivados de aplicar el principio de inversión de dependencias.
 
 
 ****
