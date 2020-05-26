@@ -36,7 +36,7 @@ La responsabilidad de conocer el monto del pago ―razona Ana― no puede ser de
 <table id="card">
     <tr>
         <td align="center" colspan="2">
-            <h3>Paymnet</h3>
+            <h3>Payment</h3>
         </td>
     </tr>
     <tr>
