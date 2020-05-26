@@ -65,7 +65,7 @@ Luego modifica la tarjeta de la clase **Sale** que ya había, para agregar las r
         <td>
             <p>Sales Line</p>
             <p>Item</p>
-            <p><b>Paymnet</b></p>
+            <p><b>Payment</b></p>
         </td>
     </tr>
 </table>
@@ -83,7 +83,7 @@ Luego modifica la tarjeta de la clase **Pos** para agregar las colaboraciones fa
             <p>Realizar un pago</p>
         </td>
         <td>
-            <p><b>Paymnet</b></p>
+            <p><b>Payment</b></p>
             <p><b>Sale</b></p>
         </td>
     </tr>
