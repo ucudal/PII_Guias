@@ -18,12 +18,12 @@ Todos los métodos y atributos de la clase deben estar estrechamente alineados c
 
 ## Ejemplo
 
-La clase `Sale` tiene responsabilidades sobre una venta, tales como conocer su fechar y calcular el total, pero también tiene la responsabilidad de imprimir el ticket.
+La clase `SaleTicket` tiene responsabilidades sobre una venta, tales como conocer su fecha y calcular el total, pero también tiene la responsabilidad de imprimir el ticket.
 
 <table id="card">
     <tr>
         <td align="center" colspan="2">
-            <h3>Sale</h3>
+            <h3>SaleTicket</h3>
         </td>
     </tr>
     <tr>
@@ -34,13 +34,12 @@ La clase `Sale` tiene responsabilidades sobre una venta, tales como conocer su f
             <p>Calcular el total</p>
         </td>
         <td>
-            <p>Sales Line</p>
-            <p>Item</p>
+            <p>TicketLineItem</p>
         </td>
     </tr>
 </table>
 
-Aunque imprimir el ticket definitivamente necesita información que está en la clase `Sale`, si en lugar de imprimir en la consola como sucede en la versión actual hubiera que imprimir en una impresora, por ejemplo, la clase `Sale` debería cambiar. Pero también debería cambiar si incluyéramos descuentos, por ejemplo. Entonces existe más de una razón por la cual la clase `Sale` debe cambiar, lo que viola el principio SRP. Podemos separar la responsabilidad de imprimir el ticket a una nueva clase `ConsolePrinter`. Esta clase debe colaborar con la clase `Sale`, que le provee el texto a imprimir, lo cual implica una nueva responsabilidad para la clase `Sale`:
+Aunque imprimir el ticket definitivamente necesita información que está en la clase `SaleTicket`, si en lugar de imprimir en la consola, como sucede en la versión actual, hubiese que imprimir en una impresora, por ejemplo, la clase `SaleTicket` debería cambiar. Pero también debería cambiar si incluyéramos descuentos, por ejemplo. Entonces existe más de una razón por la cual la clase `SaleTicket` debe cambiar, lo que viola el principio SRP. Podemos separar la responsabilidad de imprimir el ticket a una nueva clase `ConsolePrinter`. Esta clase debe colaborar con la clase `SaleTicket`, que le provee el texto a imprimir, lo cual implica cambiar las responsabilidades para la clase `SaleTicket`:
 
 <table id="card">
     <tr>
@@ -53,17 +52,17 @@ Aunque imprimir el ticket definitivamente necesita información que está en la 
             <p>Imprimir el ticket en la consola</p>
         </td>
         <td>
-            <p>Sale</p>
+            <p>SaleTicket</p>
         </td>
     </tr>
 </table>
 
-La responsabilidad agregada en la clase `Sale` está marcada de negrita:
+La responsabilidad que cambiamos en la clase `SaleTicket` está marcada de negrita:
 
 <table id="card">
     <tr>
         <td align="center" colspan="2">
-            <h3>Sale</h3>
+            <h3>SaleTicket</h3>
         </td>
     </tr>
     <tr>
@@ -71,25 +70,24 @@ La responsabilidad agregada en la clase `Sale` está marcada de negrita:
             <p>Conocer fecha y hora</p>
             <p>Conocer una o más líneas de ítems vendidos</p>
             <p>Calcular el total</p>
-            <p><b>Representar la venta como texto a imprimir</b></p>
+            <p><b>Armar el texto a imprimir</b></p>
         </td>
         <td>
-            <p>Sales Line</p>
-            <p>Item</p>
+            <p>TicketLineItem</p>
         </td>
     </tr>
 </table>
 
-Con este nuevo diseño podemos tener múltiples formas de imprimir; por ejemplo, para imprimir la venta en una impresora de rollo de papel, podríamos tener una clase `PaperRollPrinter`, que podemos implementar sin tener que modificar ninguna de nuestras clases existentes. 
+Con este nuevo diseño podemos tener múltiples formas de imprimir; por ejemplo, para imprimir la venta en una impresora de rollo de papel, podríamos tener una clase `PaperRollPrinter`, que podemos implementar sin tener que modificar ninguna de nuestras clases existentes -excepto, claro está, el método que use esta nueva clase `PaperRollPrinter`-.
 
-Las nuevas clases `Sale` y `ConsolePrinter` quedan en C# así -los … representan el código que ya apareció antes, como en los casos anteriores-.
+La nueva versión de la clase `SaleTicket` y la nueva clase `ConsolePrinter` quedan en C# así -los … representan el código que ya apareció antes, como en los casos anteriores-.
 
 ```c#
 public class ConsolePrinter
 {
     public static void PrintTicket(Sale sale)
     {
-        Console.WriteLine(sale.GetTextToPrint());
+        Console.WriteLine(sale.GetTicketText());
     }
 }
 ```
@@ -98,32 +96,46 @@ public class ConsolePrinter
 
 <br/>
 
-```c#
-public class Sale
+```diff
+public class SaleTicket
 {
     …
-    
-    public string GetTextToPrint()
-    {
-        string result = string.Empty;
-        foreach (SalesLineItem item in this.lineItems)
-        {
-            result = result + item.GetTextToPrint();
-        }
 
-        result = result + $"Total: ${this.Total}";
-        return result;
-    }
+-   public void PrintTicket()
+-   {
+-       Console.WriteLine($"Fecha: {this.DateTime}");
+-       foreach (TicketLineItem item in this.lineItems)
+-       {
+-           item.PrintTicketLine();
+-       }
+-
+-       Console.WriteLine($"Total: ${this.Total}");
+-   }
+
++    public string GetTicketText()
++    {
++       StringBuilder text = new StringBuilder($"Fecha: {this.DateTime}\n");
++       foreach (TicketLineItem item in this.lineItems)
++       {
++           text.Append(item.GetLineText());
++       }
++
++       text.Append($"Total: ${this.Total}");
++       return text.ToString();
++   }
 }
 ```
 
-> [Ver en repositorio »](https://github.com/ucudal/PII_Expert_And_SRP/blob/master/v4/Sale.cs)
+> [Ver en repositorio »](https://github.com/ucudal/PII_Expert_And_SRP/blob/master/v4/SaleTicket.cs)
+
+> Te puede llamar la atención la clase `StringBuilder`. Cuando hay intensa manipulación de texto, como en este ejemplo, es más eficiente utilizar `StringBuilder` que `String`. Esto es porque la clase `String` es inmutable, y por lo tanto, cada concatenación de texto implica crear nuevas instancias, lo cual puede tener un impacto en el desempeño del programa. Por más información mira la [documentación sobre el uso de la clase StringBuilder](https://docs.microsoft.com/en-us/dotnet/standard/base-types/stringbuilder).
+
 
 <br/>
 
 El programa principal ahora usa la nueva clase `ConsolePrinter` para imprimir el ticket:
 
-```c#
+```diff
 public class Program
 {
     …
@@ -132,12 +144,13 @@ public class Program
     {
         PopulateCatalog();
 
-        Sale sale = new Sale();
-        sale.DateTime = DateTime.Now;
-        sale.AddLineItem(new SalesLineItem(1, ProductAt(0)));
-        sale.AddLineItem(new SalesLineItem(2, ProductAt(1)));
-        sale.AddLineItem(new SalesLineItem(3, ProductAt(2)));
-        ConsolePrinter.PrintTicket(sale);
+        SaleTicket ticket = new SaleTiket();
+        ticket.DateTime = DateTime.Now;
+        ticket.AddLineItem(new TicketLineItem(1, ProductAt(0)));
+        ticket.AddLineItem(new TicketLineItem(2, ProductAt(1)));
+        ticket.AddLineItem(new TicketLineItem(3, ProductAt(2)));
+-       ticket.PrintTicket();
++       ConsolePrinter.PrintTicket(ticket);
     }
 }
 ```
