@@ -110,6 +110,12 @@ En el siguiente diagrama UML vemos cómo representar que las clasess `ConsolePri
 
 ![Polymorphism](./Assets/Polymorphism.svg)
 
+El conector entre `ConsolePrinter` e `IPrinter` indica que la clase `ConsolePrinter` **implementa** la interfaz `IPrinter`; es análogo al conector entre `FilePrinter` e `IPrinter`.
+
+El conector entre `IPrinter` y `Sale` indica que la interfaz `IPrinter` depende de la clase `Sale`. Esto es porque la para poder imprimir un ticket cualquier impresora tiene que conocer los detalles del ticket. En el código eso se refleja en la declaración de la operación `void PrintTicket(Sale)` que recibe una instancia de `Sale` como parámetro.
+
+> :warning: Como las clases `ConsolePrinter` y `FilePrinter` implementan la interfaz `IPrinter`, que tiene una **dependencia** con `Sale`, ellas también tienen una dependencia con `Sale`. Esto es porque deben implementar el método `void PrintTicket(Sale)`, y también deben conocer los detalles del ticket para poder imprimirlo.
+
 La nueva versión del programa hace lo mismo que el anterior, sólo que ahora declara dos variables de tipo IPrinter y le asigna a una de ellas una instancia de ConsolePrinter y a la otra una de FilePrinter como aparece a continuación; solo mostramos el código nuevo, los puntos … representan el código que ya apareció antes.
 
 ```diff
