@@ -106,6 +106,10 @@ public class ConsolePrinter : IPrinter
 ```
 > [Ver en repositorio »](https://github.com/ucudal/PII_Polymorphism_And_LSP/blob/master/v2/ConsolePrinter.cs)
 
+En el siguiente diagrama UML vemos cómo representar que las clasess `ConsolePrinter` y `FilePrinter` implementan la interfaz `IPrinter`:
+
+![Polymorphism](./Assets/Polymorphism.svg)
+
 La nueva versión del programa hace lo mismo que el anterior, sólo que ahora declara dos variables de tipo IPrinter y le asigna a una de ellas una instancia de ConsolePrinter y a la otra una de FilePrinter como aparece a continuación; solo mostramos el código nuevo, los puntos … representan el código que ya apareció antes.
 
 ```diff
