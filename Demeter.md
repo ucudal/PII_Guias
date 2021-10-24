@@ -217,7 +217,7 @@ public class MarkdownContentVisitor : Visitor
 
 Noten que en estas clases no se “viola” la ley de Demeter, pues cada método `Visit` recibe el objeto con el que interactúa como argumento, y por lo tanto no es un “extraño”.
 
-En los métodos `GetTextToPrint` de las clases `PlainSaleContent` y `MarkdownSaleContent` simplemente se crea una instancia `PlainContentVisit`or o `MarkdownContentVisit`or respectivamente y se recorre la venta; luego se obtiene el contenido resultado de la recorrida con la propiedad Content. Las modificaciones a estas clases aparecen a continuación remarcadas:
+En los métodos `GetTextToPrint` de las clases `PlainSaleContent` y `MarkdownSaleContent` simplemente se crea una instancia `PlainContentVisitor` o `MarkdownContentVisitor` respectivamente y se recorre la venta; luego se obtiene el contenido resultado de la recorrida con la propiedad `Content`. Las modificaciones a estas clases aparecen a continuación remarcadas:
 
 ```diff
 public class PlainSaleContent : ISaleContent
@@ -273,4 +273,4 @@ Tengan en cuenta también que el patrón `Visitor` no es la única forma de cump
 
 _<sup>1</sup> General Responsibility Assignment Methods_
 
-_<sup>2</sup> Los patrones Observer y Singleton que ya conocen provienen también de ese catálogo. Vean por ejemplo https://www.oodesign.com/_
+_<sup>2</sup> Los patrones Observer y Singleton que ya conocen provienen también de ese catálogo. Vean por ejemplo https://refactoring.guru/design-patterns/singleton y https://refactoring.guru/design-patterns/observer_
