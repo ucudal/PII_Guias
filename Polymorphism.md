@@ -50,8 +50,8 @@ public class AllInOnePrinter
     }
 }
 ```
-> [Ver en repositorio »](https://github.com/ucudal/PII_Polymorphism_And_LSP/blob/master/v1/AllInOnePrinter.cs)
-
+> [Ver en repositorio »](https://github.com/ucudal/PII_Polymorphism_And_LSP/blob/master/v1/src/Library/AllInOnePrinter.cs)
+                       
 El programa a continuación crea una instancia de la clase **AllInOnePrinter** y le envía el mensaje con selector PrintTicket pasando como parámetro la venta y el destino, **Destination.Console** para imprimir en la consola, y **Destination.File** para imprimir en un archivo.
 
 ```c#
