@@ -71,7 +71,7 @@ public class Program
     …
 }
 ```
-> [Ver en repositorio »](https://github.com/ucudal/PII_Polymorphism_And_LSP/blob/master/v1/src/Program.cs)
+> [Ver en repositorio »](https://github.com/ucudal/PII_Polymorphism_And_LSP/blob/master/v1/src/Program/Program.cs)
 
 Vean que el método PrintTicket de la clase **AllInOnePrinter** tiene un bloque de código para el caso Destination.Console y otro para Destination.File; esto es justamente lo que el patrón Polymorfism dice que no hay que hacer; el código que varía según el destino debería estar en diferentes clases con una operación polimórfica. Para eso definimos un tipo **IPrinter** y dos clases que lo implementan, **ConsolePrinter** y **FilePrinter**; vean el
 código a continuación:
