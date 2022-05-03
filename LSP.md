@@ -35,7 +35,7 @@ public class TimeMachinePrinter : IPrinter
     }
 }
 ```
-> [Ver en repositorio »](https://github.com/ucudal/PII_Polymorphism_And_LSP/blob/master/v3/TimeMachinePrinter.cs)
+> [Ver en repositorio »](https://github.com/ucudal/PII_Polymorphism_And_LSP/blob/master/v3/src/Library/TimeMachinePrinter.cs)
 
 Agreguemos un objeto de esa clase en nuestro programa y veamos qué sucede:
 
@@ -59,7 +59,7 @@ public class Program
     …
 }
 ```
-> [Ver en repositorio »](https://github.com/ucudal/PII_Polymorphism_And_LSP/blob/master/v3/Program.cs)
+> [Ver en repositorio »](https://github.com/ucudal/PII_Polymorphism_And_LSP/blob/master/v3/src/Program/Program.cs)
 
 Vean la salida en consola que resulta de ejecutar este programa -además se crea un archivo Ticket.txt que no es mostrado en este documento. ¿Qué ven de raro?
 
