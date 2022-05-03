@@ -27,13 +27,16 @@ Sin embargo, no es suficiente para cumplir con el principio de sustitución que 
 Vean esta clase **TimeMachinePrinter**, que implementa la interfaz **IPrinter**.
 ```c#
 public class TimeMachinePrinter : IPrinter
-{
-    public void PrintTicket(Sale sale)
     {
-        sale.DateTime = new DateTime(2001, 01, 01);
-        Console.WriteLine(sale.GetTextToPrint());
+        public void PrintTicket(Sale sale)
+        {
+            if (sale != null)
+            {
+                sale.DateTime = new DateTime(2001, 01, 01);
+                Console.WriteLine(sale.GetTextToPrint());
+            }
+        }
     }
-}
 ```
 > [Ver en repositorio »](https://github.com/ucudal/PII_Polymorphism_And_LSP/blob/master/v3/src/Library/TimeMachinePrinter.cs)
 
