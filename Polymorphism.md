@@ -71,7 +71,7 @@ public class Program
     …
 }
 ```
-> [Ver en repositorio »](https://github.com/ucudal/PII_Polymorphism_And_LSP/blob/master/v1/Program.cs)
+> [Ver en repositorio »](https://github.com/ucudal/PII_Polymorphism_And_LSP/blob/master/v1/src/Program.cs)
 
 Vean que el método PrintTicket de la clase **AllInOnePrinter** tiene un bloque de código para el caso Destination.Console y otro para Destination.File; esto es justamente lo que el patrón Polymorfism dice que no hay que hacer; el código que varía según el destino debería estar en diferentes clases con una operación polimórfica. Para eso definimos un tipo **IPrinter** y dos clases que lo implementan, **ConsolePrinter** y **FilePrinter**; vean el
 código a continuación:
@@ -82,7 +82,7 @@ public interface IPrinter
     void PrintTicket(Sale sale);
 }
 ```
-> [Ver en repositorio »](https://github.com/ucudal/PII_Polymorphism_And_LSP/blob/master/v2/IPrinter.cs)
+> [Ver en repositorio »](https://github.com/ucudal/PII_Polymorphism_And_LSP/blob/master/v2/src/Library/IPrinter.cs)
 
 ```c#
 public class FilePrinter : IPrinter
@@ -93,7 +93,7 @@ public class FilePrinter : IPrinter
     }
 }
 ```
-> [Ver en repositorio »](https://github.com/ucudal/PII_Polymorphism_And_LSP/blob/master/v2/FilePrinter.cs)
+> [Ver en repositorio »](https://github.com/ucudal/PII_Polymorphism_And_LSP/blob/master/v2/src/Library/FilePrinter.cs)
 
 ```c#
 public class ConsolePrinter : IPrinter
@@ -104,7 +104,7 @@ public class ConsolePrinter : IPrinter
     }
 }
 ```
-> [Ver en repositorio »](https://github.com/ucudal/PII_Polymorphism_And_LSP/blob/master/v2/ConsolePrinter.cs)
+> [Ver en repositorio »](https://github.com/ucudal/PII_Polymorphism_And_LSP/blob/master/v2/src/Library/ConsolePrinter.cs)
 
 En el siguiente diagrama UML vemos cómo representar que las clasess `ConsolePrinter` y `FilePrinter` implementan la interfaz `IPrinter`:
 
