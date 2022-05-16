@@ -95,7 +95,7 @@ public class SaleDiscount : SalesBaseItem
 
 > [Ver en repositorio »](https://github.com/ucudal/PII_Creator_And_OCP/blob/master/v3/SaleDiscount.cs)
 
-Las otras modificaciones que tenemos que hacer son cambiar el atributo items de **Sale** para que referencie una **List'<'SalesBaseItem'>'** en lugar de **List<SalesLineItem>;** y agregar un método **AddDiscount** análogo al método **AddLineItem**; vean que **AddDiscount** crea una instancia de **SaleDiscount** y ya la agrega a la propiedad items; los cambios están marcados en verde.
+Las otras modificaciones que tenemos que hacer son cambiar el atributo items de **Sale** para que referencie una **List\<SalesBaseItem/>** en lugar de **List<SalesLineItem>;** y agregar un método **AddDiscount** análogo al método **AddLineItem**; vean que **AddDiscount** crea una instancia de **SaleDiscount** y ya la agrega a la propiedad items; los cambios están marcados en verde.
 
 ```diff
 public class Sale
