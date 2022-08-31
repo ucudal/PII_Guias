@@ -85,7 +85,7 @@ La nueva versión de la clase `SaleTicket` y la nueva clase `ConsolePrinter` que
 ```c#
 public class ConsolePrinter
 {
-    public static void PrintTicket(Sale sale)
+    public static void PrintTicket(SaleTicket sale)
     {
         Console.WriteLine(sale.GetTicketText());
     }
