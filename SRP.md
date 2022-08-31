@@ -161,4 +161,4 @@ public class Program
 
 ## Beneficios
 
-Vimos con el ejemplo que para agregar una clase `RollerPaparPrinter`, podemos comenzar a imprimir la factura en papel sin modificar ninguna de las clases existentes. Este diseño es entonces más fácil de extender, es más robusto a las modificaciones.
+Vimos con el ejemplo que para agregar una clase `PaperRollPrinter`, podemos comenzar a imprimir la factura en papel sin modificar ninguna de las clases existentes. Este diseño es entonces más fácil de extender, es más robusto a las modificaciones.
