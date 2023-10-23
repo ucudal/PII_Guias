@@ -88,18 +88,18 @@ public class Sale
 
 <br>
 
-También es bastante común en los puntos de venta que el ticket se cierre automáticamente para evitar modificaciones accidentales si queda abierto más tiempo del necesario. La persona que usa el punto de venta puede abrirlo nuevamente si fue cerrado automáticamente. Para implementar esto contamos con una clase `CountdownTimer` a la que un objeto de tipo `TimerClient` puede registrarse usando el método `Register` para que le avise después de transcurrido cierto tiempo. La clase `CountDowntimer` le avisa al objeto registrado enviándole un mensaje `TimeOut` cuya la firma está definida en `TimerClient`. Vean la interfaz y la clase a continuación:
+También es bastante común en los puntos de venta que el ticket se cierre automáticamente para evitar modificaciones accidentales si queda abierto más tiempo del necesario. La persona que usa el punto de venta puede abrirlo nuevamente si fue cerrado automáticamente. Para implementar esto contamos con una clase `CountdownTimer` a la que un objeto de tipo `ITimerClient` puede registrarse usando el método `Register` para que le avise después de transcurrido cierto tiempo. La clase `CountDowntimer` le avisa al objeto registrado enviándole un mensaje `TimeOut` cuya la firma está definida en `ITimerClient`. Vean la interfaz y la clase a continuación:
 
 
 ```c#
-public interface TimerClient
+public interface ITimerClient
 {
     void TimeOut();
 }
 
 public class CountdownTimer
 {
-    private TimerClient client;
+    private ITimerClient client;
 
     private Timer timer;
     
@@ -121,16 +121,16 @@ public class CountdownTimer
 
 <br/>
 
-Para poder cerrar la venta automáticamente luego de transcurrido cierto tiempo, necesitamos registrar la venta con una instancia de `CountdownTimer`, para lo cual la clase Sale debe implementar la interfaz `TimerClient`. En forma gráfica, el diseño queda así:
+Para poder cerrar la venta automáticamente luego de transcurrido cierto tiempo, necesitamos registrar la venta con una instancia de `CountdownTimer`, para lo cual la clase Sale debe implementar la interfaz `ITimerClient`. En forma gráfica, el diseño queda así:
 
 ![ISP_3](./Assets/ISP_3.png)
 
-Noten que la clase `Sale` tiene las mismas operaciones que tenía antes, más un nuevo método `TimeOut`: este nuevo método agregado para implementar la interfaz `TimerClient` no es necesario para usar hacer una venta, sino por el mecanismo de notificación que usa `CountdownTimer`. Por ejemplo, la clase `Program` depende de la clase `Sale` -crea instancias y agrega líneas de venta- y pasa a depender -indirectamente- de la interfaz `TimerClient`.
+Noten que la clase `Sale` tiene las mismas operaciones que tenía antes, más un nuevo método `TimeOut`: este nuevo método agregado para implementar la interfaz `ITimerClient` no es necesario para usar hacer una venta, sino por el mecanismo de notificación que usa `CountdownTimer`. Por ejemplo, la clase `Program` depende de la clase `Sale` -crea instancias y agrega líneas de venta- y pasa a depender -indirectamente- de la interfaz `ITimerClient`.
 
 El código de la clase `Sale` aparece a continuación, los puntos … representan el código que ya apareció antes, las modificaciones están restaltadas:
 
 ```diff
-+public class Sale : TimerClient
++public class Sale : ITimerClient
 {
     …
     
@@ -172,14 +172,14 @@ Modificamos entonces el método `Register` de la clase `CountdownTimer` para inc
 Vean el código a continuación, los puntos … representan el código que ya apareció antes, las modificaciones están resaltadas (en rojo lo anterior, en verde lo nuevo):
 
 ```diff
-public interface TimerClient
+public interface ITimerClient
 {
 ~    void TimeOut(object timeOutId);
 }
 
 public class CountdownTimer
 {
-    private TimerClient client;
+    private ITimerClient client;
 
     private Timer timer;
 
