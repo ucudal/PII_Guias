@@ -6,9 +6,12 @@
 
 # Polymorphism Pattern
 
-Decimos que una operación es polimórfica cuando es implementada por dos o más objetos de diferentes tipos. Relacionado con esto hay un patrón GRASP<sup>1</sup> llamado Polymorfism.
+Decimos que una operación es polimórfica cuando es implementada por dos o más objetos de diferentes tipos. Relacionado con esto hay una guía GRASP<sup>1</sup> llamada Polymorfism.
 
-Recuerden que los patrones GRASP fueron planteados por Craig Larmann en el libro “Applying UML and Patterns”, de 1998. Tanto el patrón presentado en el este documento como el ejemplo que lo acompaña están tomados de ese libro, que te recomendamos consultar.
+Recuerden que las guías GRASP fueron planteadas por Craig Larmann en el libro
+“Applying UML and Patterns”, de 1998. Tanto la guía presentada en el este documento como el
+ejemplo que lo acompaña están tomados de ese libro, que te recomendamos
+consultar.
 
 ## Problema
 
@@ -51,7 +54,7 @@ public class AllInOnePrinter
 }
 ```
 > [Ver en repositorio »](https://github.com/ucudal/PII_Polymorphism_And_LSP/blob/master/v1/src/Library/AllInOnePrinter.cs)
-                       
+
 El programa a continuación crea una instancia de la clase **AllInOnePrinter** y le envía el mensaje con selector PrintTicket pasando como parámetro la venta y el destino, **Destination.Console** para imprimir en la consola, y **Destination.File** para imprimir en un archivo.
 
 ```c#
@@ -73,7 +76,12 @@ public class Program
 ```
 > [Ver en repositorio »](https://github.com/ucudal/PII_Polymorphism_And_LSP/blob/master/v1/src/Program/Program.cs)
 
-Vean que el método PrintTicket de la clase **AllInOnePrinter** tiene un bloque de código para el caso Destination.Console y otro para Destination.File; esto es justamente lo que el patrón Polymorfism dice que no hay que hacer; el código que varía según el destino debería estar en diferentes clases con una operación polimórfica. Para eso definimos un tipo **IPrinter** y dos clases que lo implementan, **ConsolePrinter** y **FilePrinter**; vean el
+Vean que el método PrintTicket de la clase **AllInOnePrinter** tiene un bloque
+de código para el caso Destination.Console y otro para Destination.File; esto es
+justamente lo que la guía Polymorfism dice que no hay que hacer; el código que varía
+según el destino debería estar en diferentes clases con una operación
+polimórfica. Para eso definimos un tipo **IPrinter** y dos clases que lo
+implementan, **ConsolePrinter** y **FilePrinter**; vean el
 código a continuación:
 
 ```c#

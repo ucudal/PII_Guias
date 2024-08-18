@@ -8,7 +8,7 @@
 
 ## Introducción
 
-Este  documento  presenta  otro  de  los  patrones  GRASP<sup>1</sup>.  Recuerden  que  los  patrones  GRASP fueron  planteados  por Craig Larmannen el libro “Applying UML and Patterns”, de 1998. Tanto el patrón presentado en el este documento como el ejemplo que lo acompaña están tomados de ese libro, que te recomendamos consultar. Aunque un objeto esté bien encapsulado, aún es posible conocer detalles de la implementación de ese objeto cuando “navegamos” a través de la estructura de objetos indirectos; esto es, cuando accedemos a atributos o métodos de objetos que son a su vez atributos del objeto en cuestión. Mira por ejemplo el diagrama siguiente, tomado del documento Dependency Inversion Principle:
+Este  documento  presenta  otro  de  los  patrones  GRASP<sup>1</sup>.  Recuerden  que  los  patrones  GRASP fueron  planteados  por Craig Larmannen el libro “Applying UML and Patterns”, de 1998. Tanto la guía presentada en el este documento como el ejemplo que lo acompaña están tomados de ese libro, que te recomendamos consultar. Aunque un objeto esté bien encapsulado, aún es posible conocer detalles de la implementación de ese objeto cuando “navegamos” a través de la estructura de objetos indirectos; esto es, cuando accedemos a atributos o métodos de objetos que son a su vez atributos del objeto en cuestión. Mira por ejemplo el diagrama siguiente, tomado del documento Dependency Inversion Principle:
 
 ![Demeter_1](./Assets/Demeter_1.png)
 
@@ -68,9 +68,12 @@ En este contexto, un objeto directo de un objeto dado es:
 
 - Un objeto creado dentro de un método.
 
-Los objetos con estas relaciones se consideran “conocidos” del objeto dado y por lo tanto es posible ese objeto les envíe mensajes o acceda a sus atributos, los demás objetos son “extraños” y no deberían ser accedidos; de ahí el nombre del patrón.
+Los objetos con estas relaciones se consideran “conocidos” del objeto dado y por
+lo tanto es posible ese objeto les envíe mensajes o acceda a sus atributos, los
+demás objetos son “extraños” y no deberían ser accedidos; de ahí el nombre de la
+guía.
 
-Una forma de recorrer una estructura de objetos respetando el patrón Don’t Talk to Strangers es mediante otro de los patrones del catálogo en Design Patterns: Elements of Reusable Object-oriented Software, de Erich Gamma, Richard Helm, Ralph E. Johnson y John Vlissides<sup>2</sup>, llamado Visitor. Este libro está incluido en la bibliografía y te lo recomendamos consultar. También puedes ver el patrón [Visitor en el sitio Refactoring Guru](https://refactoring.guru/design-patterns/visitor).
+Una forma de recorrer una estructura de objetos respetando la guía Don’t Talk to Strangers es mediante otro de los patrones del catálogo en Design Patterns: Elements of Reusable Object-oriented Software, de Erich Gamma, Richard Helm, Ralph E. Johnson y John Vlissides<sup>2</sup>, llamado Visitor. Este libro está incluido en la bibliografía y te lo recomendamos consultar. También puedes ver el patrón [Visitor en el sitio Refactoring Guru](https://refactoring.guru/design-patterns/visitor).
 
 En este patrón, los objetos en la estructura a recorrer tienen un método `Accept` que recibe como argumento un objeto de tipo `Visitor`; estos métodos `Accept` simplemente delegan la operación a ese objeto, pasándose a sí mismos como argumento de un mensaje con selector `Visit` que todos los objetos de tipo `Visitor` tienen. Vean el código del método `Accept` a continuación para las clases `Sale`, `SalesLineItem` y `ProductSpecification`; sólo mostramos el código nuevo, los … representan el código que ya apareció antes. Las modificaciones están resaltadas.
 
@@ -265,7 +268,7 @@ internal class MarkdownSaleContent : ISaleContent
 
 <br/>
 
-Este patrón Don’t Talk to Strangers, al igual que los demás, debe ser aplicado con sentido común. Hay veces en las que no está mal acceder a objetos indirectos, todo depende de la complejidad de la estructura de esos objetos y de las dependencias indeseables que se crean. A veces es mejor convivir con eso que introducir un patrón como `Visitor`.
+Esta guía Don’t Talk to Strangers, al igual que las demás, debe ser aplicada con sentido común. Hay veces en las que no está mal acceder a objetos indirectos, todo depende de la complejidad de la estructura de esos objetos y de las dependencias indeseables que se crean. A veces es mejor convivir con eso que introducir un patrón como `Visitor`.
 
 Tengan en cuenta también que el patrón `Visitor` no es la única forma de cumplir con la ley de Demeter, lo incluimos aquí como un ejemplo conveniente.
 

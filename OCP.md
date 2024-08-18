@@ -55,7 +55,7 @@ public class SalesLineItem : SalesBaseItem
             return this.Quantity * this.Product.Price;
         }
     }
-    
+
 ++  public override string GetTextToPrint()
     {
         return $"{this.Quantity} de '{this.Product.Description}' a ${this.Product.Price}\n";
@@ -77,7 +77,7 @@ public class SaleDiscount : SalesBaseItem
     }
 
     public double Amount { get; }
-    
+
     public override double SubTotal
     {
         get
@@ -240,7 +240,9 @@ public class Program
 Esta versión del programa produce exactamente el mismo resultado que el anterior.
 
 La responsabilidad de crear instancias de sucesores de **SalesBaseItem** sigue siendo de la clase **Sale**, sólo que el código
-necesario para hacerlo se pasa como argumento. Usando inyección de dependencias, delegados y funciones lambda, aplicamos el patrón Creator de asignación de responsabilidades, y además cumplimos con el principio abierto/cerrado.
+necesario para hacerlo se pasa como argumento. Usando inyección de dependencias,
+delegados y funciones lambda, aplicamos la guía Creator de asignación de
+responsabilidades, y además cumplimos con el principio abierto/cerrado.
 No se preocupen si esto les resulta muy complejo, no se espera que lo comprendan, ni es necesario que lo apliquen.
 
 *****

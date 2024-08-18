@@ -1,16 +1,15 @@
-![UCU](https://github.com/ucudal/PII_Conceptos_De_POO/raw/master/Assets/logo-ucu.png)
-
-### FIT - Universidad Católica del Uruguay
-
-<br>
-
 # Low Coupling & High Cohesion
 
 ## Introducción
 
-En este documento veremos un par más de patrones GRASP<sup>1</sup>. Al igual que el resto de los patrones GRASP y los principios SOLID, estos nuevos patrones ayudan a distribuir los datos y la lógica de los programas de forma razonablemente equilibrada en responsabilidades de hacer y de conocer de las clases y objetos.
+En este documento veremos un par más de guías GRASP<sup>1</sup>. Al igual que el
+resto de las guías GRASP y  SOLID, estas nuevas guías ayudan a distribuir los datos y la
+lógica de los programas de forma razonablemente equilibrada en responsabilidades
+de hacer y de conocer de las clases y objetos.
 
-Los patrones GRASP fueron planteados por Craig Larman en el libro “Applying UML and Patterns”, de 1998. Tanto los patrones presentados en este documento como el ejemplo que los acompaña están tomados de ese libro, que te recomendamos consultar.
+Las guías GRASP fueron planteadas por Craig Larman en el libro “Applying UML and
+Patterns”, de 1998. Tanto las guías presentadas en este documento como el ejemplo que los
+acompaña están tomados de ese libro, que te recomendamos consultar.
 
 ## Low Coupling Pattern
 
@@ -123,7 +122,7 @@ public class Sale
 {
     …
     private IList<Payment> payments = new List<Payment>();
-  
+
 +    public double Paid
 +    {
 +       get
@@ -173,7 +172,10 @@ El código compila y funciona, pero a Ana le entra la duda si está bien que la 
 
 ―Claro Ana, ¿en qué te pudo ayudar?
 
-―Mira ―dice Ana mostrándole las tarjetas CRC que había hecho― no estoy segura de qué clase debería tener la responsabilidad de crear instancias de **Payment**. Usando el patrón Creator ―continuó Ana― asigné esa responsabilidad a la clase **Pos**, porque **Pos** es la clase que recibe los pagos y conoce el monto pagado.
+―Mira ―dice Ana mostrándole las tarjetas CRC que había hecho― no estoy segura de
+qué clase debería tener la responsabilidad de crear instancias de **Payment**.
+Usando la guía Creator ―continuó Ana― asigné esa responsabilidad a la clase **Pos**,
+porque **Pos** es la clase que recibe los pagos y conoce el monto pagado.
 
 ―Te sigo Ana, ¿cuál es tu duda?
 
@@ -280,7 +282,7 @@ En el contexto de la programación orientada a objetos, la [cohesión](https://e
 
 El problema con la baja cohesión es que deriva en clases que son más difíciles de entender, de reutilizar, de mantener, y generalmente son más frágiles.
 
-Podemos analizar la decisión de Ana en el capítulo anterior a la luz del patrón High Cohesion. El primer diseño pone la responsabilidad de crear instancias de **Payment** en **Pos**. Probablemente con una sola responsabilidad no se note la falta de cohesión, pero si agregamos a la clase **Pos** otras responsabilidades de las que es candidata -leer una tarjeta de crédito o de débito, procesar un PIN, comunicarse con el banco, imprimir el voucher, etc. puede ocurrir que se vuelva poco cohesiva.
+Podemos analizar la decisión de Ana en el capítulo anterior a la luz de la guía High Cohesion. El primer diseño pone la responsabilidad de crear instancias de **Payment** en **Pos**. Probablemente con una sola responsabilidad no se note la falta de cohesión, pero si agregamos a la clase **Pos** otras responsabilidades de las que es candidata -leer una tarjeta de crédito o de débito, procesar un PIN, comunicarse con el banco, imprimir el voucher, etc. puede ocurrir que se vuelva poco cohesiva.
 
 Por el contrario, el segundo diseño pone la responsabilidad de crear instancias de **Payment** en **Sale**, que ya tiene la responsabilidad de conocer las instancias de **Payment**. Aunque es una nueva responsabilidad, está estrechamente relacionada con responsabilidades que **Sale** ya tenía.
 
@@ -290,7 +292,7 @@ Cohesión y acoplamiento están correlacionados; cuando una mejora el otro empeo
 
 - Una clase que hace lo mínimo necesario y delega todo lo demás seguramente es altamente cohesiva porque lo poco que hace está sumamente relacionado, pero probablemente tenga muchas relaciones con otras clases, con lo cual va a estar muy acoplada.
 
-Estos dos patrones, **Low Coupling** y **High Cohesion** son guías para decidir cómo asignar responsabilidades. 
+Estos dos patrones, **Low Coupling** y **High Cohesion** son guías para decidir cómo asignar responsabilidades.
 
 *****
 

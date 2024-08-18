@@ -200,7 +200,7 @@ Fecha: 31/3/2021
 
 Ahora bien, en este ejemplo, si quisiéramos agregar al ticket el total de la venta, ¿quién debe tener la responsabilidad de conocer ese total?
 
-Por el patrón Expert, deberíamos mirar qué clases tienen la información necesaria para determinar el total. El total de una venta se calcula sumando el subtotal de las líneas del ticket; y a su vez, el subtotal de cada línea se calcula como el producto de la cantidad vendida en esa línea, multiplicada por el precio del producto vendido en esa línea.
+Por la guía Expert, deberíamos mirar qué clases tienen la información necesaria para determinar el total. El total de una venta se calcula sumando el subtotal de las líneas del ticket; y a su vez, el subtotal de cada línea se calcula como el producto de la cantidad vendida en esa línea, multiplicada por el precio del producto vendido en esa línea.
 
 ¿Qué se necesita para determinar el total de la venta? Es necesario conocer todas las instancias de `TicketLineItem` de un ticket y la suma de los subtotales de cada línea. Sólo las instancias de `SaleTicket` tienen la responsabilidad de conocer esta información; por lo tanto, por Expert, `SaleTicket` es la clase correcta para asumir la responsabilidad de determinar el total; es el experto de información.
 
@@ -346,7 +346,7 @@ public class Sale
 
 <br/>
 
-El patrón Expert es usado más que ningún otro patrón en la asignación de responsabilidades; es un principio guía básico usado continuamente en el diseño orientado a objetos. Expert expresa la intuición de sentido común de que los objetos hacen cosas relacionadas con la información que tienen.
+La guía Expert es usada más que ninguna otra guía en la asignación de responsabilidades; es un principio guía básico usado continuamente en el diseño orientado a objetos. Expert expresa la intuición de sentido común de que los objetos hacen cosas relacionadas con la información que tienen.
 
 Noten que para cumplir una responsabilidad a menudo es necesario información que está desperdigada a través de diferentes clases de objetos. Esto implica que hay “expertos parciales” que colaboran para cumplir con la responsabilidad.
 

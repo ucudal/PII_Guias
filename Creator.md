@@ -1,14 +1,11 @@
-![UCU](https://github.com/ucudal/PII_Conceptos_De_POO/raw/master/Assets/logo-ucu.png)
+# Creator
 
-### FIT - Universidad Católica del Uruguay
+Este documento presenta la tercera guía GRASP<sup>1</sup>, la primera fue Expert y la segundo Polymofism.
 
-<br>
-
-# Creator Pattern
-
-Este documento presenta el tercer patrón GRASP<sup>1</sup>, el primero fue Expert y el segundo Polymofism.
-
-Recuerden que los patrones GRASP fueron planteados por Craig Larmann en el libro “Applying UML and Patterns”, de 1998. Tanto el patrón presentado en el este documento, como el ejemplo que lo acompaña, están tomados de ese libro, que te recomendamos consultar.
+Recuerden que las guías GRASP fueron planteadas por Craig Larmann en el libro
+“Applying UML and Patterns”, de 1998. Tanto la guía presentada en este documento,
+como el ejemplo que lo acompaña, están tomados de ese libro, que te recomendamos
+consultar.
 
 ## Problema
 
@@ -31,8 +28,9 @@ En cualquiera de las opciones anteriores la clase B tiene una variable de instan
 
 ## Ejemplo
 
-¿Recuerdan el ejemplo del patrón Expert del documento **Expert y SRP**? En ese ejemplo teníamos algunas clases que
-podrían ser parte de una aplicación de punto de venta<sup>2</sup>.
+¿Recuerdan el ejemplo de la guía Expert del documento **Expert y SRP**? En ese
+ejemplo teníamos algunas clases que podrían ser parte de una aplicación de punto
+de venta<sup>2</sup>.
 
 Una venta representada en la clase Sale, tiene su estado que está compuesto por las líneas de venta, representadas por la clase **SalesLineItem**, bien encapsulado: el atributo **lineItem** que contiene las instancias de **SalesLineItem** es privado, y las líneas sólo pueden ser agregadas enviando a una instancia de Sale un mensaje con selector **AddLineItem** y una instancia de **SalesLineItem** como argumento; algo similar ocurre con **RemoveLineItem** para quitar líneas.
 
@@ -60,7 +58,7 @@ public class Program
 
 > [Ver en repositorio »](https://github.com/ucudal/PII_Creator_And_OCP/blob/master/v1/Program.cs)
 
-De acuerdo al patrón Creator esto no es correcto, pues las instancias de **SalesLineItem** son creadas por la clase Program, cuando en realidad la clase que contiene esas instancias es **Sales**. Modificamos entonces la clase Sale para asignarle la responsabilidad de crear instancias de **SalesLineItem**; nuevamente, solo mostramos el código relevante, los puntos … representan el resto del código:
+De acuerdo a la guía Creator esto no es correcto, pues las instancias de **SalesLineItem** son creadas por la clase Program, cuando en realidad la clase que contiene esas instancias es **Sales**. Modificamos entonces la clase Sale para asignarle la responsabilidad de crear instancias de **SalesLineItem**; nuevamente, solo mostramos el código relevante, los puntos … representan el resto del código:
 
 ```c#
 public class Sale
@@ -78,7 +76,7 @@ public class Sale
 ```
 > [Ver en repositorio »](https://github.com/ucudal/PII_Creator_And_OCP/blob/master/v2/Sale.cs)
 
-El método **AddLineItem** de la clase Sale recibe como argumento todos los datos necesarios para crear instancias de **SalesLineItem**. Noten que además de crear la instancia, el objeto recién creado se agrega a item, con lo cual es menos probable que existan instancias de **SalesLineItem** que no pertenezcan a alguna instancia de **Sale**. 
+El método **AddLineItem** de la clase Sale recibe como argumento todos los datos necesarios para crear instancias de **SalesLineItem**. Noten que además de crear la instancia, el objeto recién creado se agrega a item, con lo cual es menos probable que existan instancias de **SalesLineItem** que no pertenezcan a alguna instancia de **Sale**.
 
 La clase **Program** ahora no crea instancias de **SalesLineItem**, le pide a Sale que lo haga; nuevamente, solo mostramos el código que cambió, los puntos … representan el resto del código.
 

@@ -1,6 +1,4 @@
-![UCU](https://github.com/ucudal/PII_Conceptos_De_POO/raw/master/Assets/logo-ucu.png)
-
-[Principios y Patrones](../../README.md)
+[Guías de diseño](../../README.md)
 
 # Principios
 

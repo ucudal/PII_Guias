@@ -1,8 +1,6 @@
-![UCU](https://github.com/ucudal/PII_Conceptos_De_POO/raw/master/Assets/logo-ucu.png)
+[Guías de diseño](../../README.md)
 
-[Principios y Patrones](../../README.md)
-
-# Patrones GRASP
+# GRASP
 
 ## Tarjetas
 
@@ -73,5 +71,5 @@
 | ---- |
 | **Problema** |
 | ¿A quién asignar responsabilidades para evitar conocer la estructura interna de un objeto? |
-| **Solución** | 
+| **Solución** |
 | Enviar mensajes sólo a sí mismo, a un parámetro, a un atributo, a un objeto creado en el método, o al contenido de una colección poseída |
